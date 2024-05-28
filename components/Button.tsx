@@ -1,22 +1,25 @@
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, StyleProp, ViewStyle } from 'react-native';
 
 import { colorGuide } from '../styles/styleGuide';
+import { AppColors } from './../styles/styleGuide';
 
 type ButtonProps = {
   title: string;
   isDestructive?: boolean;
   enabled?: boolean;
   onPress: () => void;
+  customStyle?:StyleProp<ViewStyle>
+
 };
 
-const Button: React.FC<ButtonProps> = ({ title, isDestructive = false, enabled = true, onPress }) => {
+const Button: React.FC<ButtonProps> = ({ title, isDestructive = false, enabled = true, onPress,customStyle }) => {
     return (
         <TouchableOpacity
           activeOpacity={0.6}
           disabled={!enabled}
           style={[
             styles.container,
-            isDestructive? styles.destructiveContainer : styles.basicContainer,
+            customStyle? customStyle:  isDestructive? styles.destructiveContainer : styles.basicContainer,
            !enabled && styles.disabled,
           ]}
           onPress={enabled? onPress : undefined}>
@@ -46,8 +49,8 @@ const styles = StyleSheet.create({
     color: colorGuide.button.basic.color,
   },
   destructiveContainer: {
-    backgroundColor: colorGuide.button.destructive.color,
-    borderColor: colorGuide.button.destructive.borderColor,
+    backgroundColor: "#FFFFFF00",
+    borderColor: AppColors.darkGreen,
   },
   destructiveText: {
     fontWeight: 'normal',

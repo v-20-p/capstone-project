@@ -4,6 +4,10 @@ type User = {
     firstName: string;
     email: string;
     emailNotifications: Record<string, unknown>;
+    phoneNumber?: string
+    hasAvatar?: boolean
+    avatarPath?: string
+    lastName?: string
   };
   
   type UserContextType = {

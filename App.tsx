@@ -25,7 +25,7 @@ export default function App() {
     try {
       const savedUser = await readUser();
 
-      if (savedUser) {
+      if (savedUser) {      
         setUser(savedUser);
       }
     } catch (error) {

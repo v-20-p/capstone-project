@@ -21,7 +21,7 @@ export const AppColors = {
     },
     button: {
       basic: {
-        background: AppColors.orange,
+        background: AppColors.darkGreen,
         color: AppColors.white,
         borderColor: AppColors.orange,
       },
